@@ -178,7 +178,7 @@ class BaseBagging(with_metaclass(ABCMeta, BaseEnsemble)):
 
     @abstractmethod
     def __init__(self,
-                 base_estimator=None,
+                 estimator=None,
                  n_estimators=10,
                  max_samples=1.0,
                  max_features=1.0,
@@ -189,7 +189,7 @@ class BaseBagging(with_metaclass(ABCMeta, BaseEnsemble)):
                  random_state=None,
                  verbose=0):
         super(BaseBagging, self).__init__(
-            base_estimator=base_estimator,
+            estimator=estimator,
             n_estimators=n_estimators)
 
         self.max_samples = max_samples
@@ -366,7 +366,7 @@ class BaggingClassifier(BaseBagging, ClassifierMixin):
 
     Parameters
     ----------
-    base_estimator : object or None, optional (default=None)
+    estimator : object or None, optional (default=None)
         The base estimator to fit on random subsets of the dataset.
         If None, then the base estimator is a decision tree.
 
@@ -460,7 +460,7 @@ class BaggingClassifier(BaseBagging, ClassifierMixin):
     """
 
     def __init__(self,
-                 base_estimator=None,
+                 estimator=None,
                  n_estimators=10,
                  max_samples=1.0,
                  max_features=1.0,
@@ -472,7 +472,7 @@ class BaggingClassifier(BaseBagging, ClassifierMixin):
                  verbose=0):
 
         super(BaggingClassifier, self).__init__(
-            base_estimator,
+            estimator,
             n_estimators=n_estimators,
             max_samples=max_samples,
             max_features=max_features,

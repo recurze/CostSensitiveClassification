@@ -115,7 +115,7 @@ class CostSensitiveRandomForestClassifier(BaggingClassifier):
                  verbose=False,
                  pruned=False):
         super(BaggingClassifier, self).__init__(
-            base_estimator=CostSensitiveDecisionTreeClassifier(max_features=max_features, pruned=pruned),
+            estimator=CostSensitiveDecisionTreeClassifier(max_features=max_features, pruned=pruned),
             n_estimators=n_estimators,
             max_samples=1.0,
             max_features=1.0,
@@ -225,7 +225,7 @@ class CostSensitiveBaggingClassifier(BaggingClassifier):
                  verbose=False,
                  pruned=False):
         super(BaggingClassifier, self).__init__(
-            base_estimator=CostSensitiveDecisionTreeClassifier(pruned=pruned),
+            estimator=CostSensitiveDecisionTreeClassifier(pruned=pruned),
             n_estimators=n_estimators,
             max_samples=max_samples,
             max_features=1.0,
@@ -335,7 +335,7 @@ class CostSensitivePastingClassifier(BaggingClassifier):
                  verbose=False,
                  pruned=False):
         super(BaggingClassifier, self).__init__(
-            base_estimator=CostSensitiveDecisionTreeClassifier(pruned=pruned),
+            estimator=CostSensitiveDecisionTreeClassifier(pruned=pruned),
             n_estimators=n_estimators,
             max_samples=max_samples,
             max_features=1.0,
@@ -451,7 +451,7 @@ class CostSensitiveRandomPatchesClassifier(BaggingClassifier):
                  verbose=False,
                  pruned=False):
         super(BaggingClassifier, self).__init__(
-            base_estimator=CostSensitiveDecisionTreeClassifier(pruned=pruned),
+            estimator=CostSensitiveDecisionTreeClassifier(pruned=pruned),
             n_estimators=n_estimators,
             max_samples=max_samples,
             max_features=max_features,
