@@ -100,7 +100,7 @@ class BayesMinimumRiskClassifier(BaseEstimator):
         # cost_mat[FP,FN,TP,TN]
         t_bmr = (cost_mat[:, 0] - cost_mat[:, 3]) / (cost_mat[:, 1] - cost_mat[:, 3] - cost_mat[:, 2] + cost_mat[:, 0])
 
-        y_pred = np.greater(y_prob[:, 1], t_bmr).astype(np.float)
+        y_pred = np.greater(y_prob[:, 1], t_bmr).astype(np.float64)
 
         return y_pred
 
@@ -145,7 +145,7 @@ class BayesMinimumRiskClassifier(BaseEstimator):
         # cost_mat[FP,FN,TP,TN]
         t_bmr = (cost_mat[:, 0] - cost_mat[:, 3]) / (cost_mat[:, 1] - cost_mat[:, 3] - cost_mat[:, 2] + cost_mat[:, 0])
 
-        y_pred = np.greater(y_prob[:, 1], t_bmr).astype(np.float)
+        y_pred = np.greater(y_prob[:, 1], t_bmr).astype(np.float64)
 
         return y_pred
 

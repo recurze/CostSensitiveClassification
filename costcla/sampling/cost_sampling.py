@@ -104,11 +104,11 @@ def cost_sampling(X, y, cost_mat, method='RejectionSampling', oversampling_norm=
 
     elif method == 'OverSampling':
         # over-sampling with normalized wn [2]
-        wc_n = np.ceil(wc / oversampling_norm).astype(np.int)
+        wc_n = np.ceil(wc / oversampling_norm).astype(np.int64)
 
         new_n = wc_n.sum()
 
-        filter_ = np.ones(new_n, dtype=np.int)
+        filter_ = np.ones(new_n, dtype=np.int64)
 
         e = 0
         #TODO replace for

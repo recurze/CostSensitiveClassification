@@ -61,7 +61,7 @@ def load_churn():
                            delimiter=',', compression='gzip')
     descr = open(join(module_path, 'descr', 'churn_tv_subscriptions.rst')).read()
 
-    target = raw_data['target'].values.astype(np.int)
+    target = raw_data['target'].values.astype(np.int64)
     n_samples = raw_data.shape[0]
 
     # Continous features
@@ -150,7 +150,7 @@ def load_bankmarketing(cost_mat_parameters=None):
 
     n_samples = raw_data.shape[0]
 
-    target = np.zeros((n_samples,), dtype=np.int)
+    target = np.zeros((n_samples,), dtype=np.int64)
     target[raw_data['y'].values == 'yes'] = 1
 
     # Create dummies
@@ -228,7 +228,7 @@ def load_creditscoring1(cost_mat_parameters=None):
     raw_data = raw_data.loc[(raw_data['MonthlyIncome'] > 0)]
     raw_data = raw_data.loc[(raw_data['DebtRatio'] < 1)]
 
-    target = raw_data['SeriousDlqin2yrs'].values.astype(np.int)
+    target = raw_data['SeriousDlqin2yrs'].values.astype(np.int64)
 
     data = raw_data.drop(['SeriousDlqin2yrs', 'id'], 1)
 
@@ -296,10 +296,10 @@ def load_creditscoring2(cost_mat_parameters=None):
     raw_data = raw_data.loc[raw_data['TARGET_LABEL_BAD=1'] != 'N']
 
     # Exclude 100<PERSONAL_NET_INCOME<10000
-    raw_data = raw_data.loc[(raw_data['PERSONAL_NET_INCOME'].values.astype(np.float) > 100)]
-    raw_data = raw_data.loc[(raw_data['PERSONAL_NET_INCOME'].values.astype(np.float) < 10000)]
+    raw_data = raw_data.loc[(raw_data['PERSONAL_NET_INCOME'].values.astype(np.float64) > 100)]
+    raw_data = raw_data.loc[(raw_data['PERSONAL_NET_INCOME'].values.astype(np.float64) < 10000)]
 
-    target = raw_data['TARGET_LABEL_BAD=1'].values.astype(np.int)
+    target = raw_data['TARGET_LABEL_BAD=1'].values.astype(np.int64)
 
     # Continuous features
     cols_con = ['ID_SHOP', 'AGE', 'AREA_CODE_RESIDENCIAL_PHONE', 'PAYMENT_DAY', 'SHOP_RANK',

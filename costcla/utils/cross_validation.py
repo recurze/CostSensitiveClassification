@@ -325,7 +325,7 @@ class KFold(_BaseKFold):
     def _iter_test_indices(self):
         n = self.n
         n_folds = self.n_folds
-        fold_sizes = (n // n_folds) * np.ones(n_folds, dtype=np.int)
+        fold_sizes = (n // n_folds) * np.ones(n_folds, dtype=np.int64)
         fold_sizes[:n % n_folds] += 1
         current = 0
         for fold_size in fold_sizes:
@@ -425,7 +425,7 @@ class StratifiedKFold(_BaseKFold):
         per_label_cvs = [
             KFold(max(c, self.n_folds), self.n_folds, shuffle=self.shuffle,
                   random_state=rng) for c in label_counts]
-        test_folds = np.zeros(n_samples, dtype=np.int)
+        test_folds = np.zeros(n_samples, dtype=np.int64)
         for test_fold_idx, per_label_splits in enumerate(list(zip(*per_label_cvs))):
             for label, (_, test_split) in zip(unique_labels, per_label_splits):
                 label_test_folds = test_folds[y == label]
