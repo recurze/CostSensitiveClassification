@@ -32,7 +32,7 @@ Chawla, N.V et al.
 '''
 import logging
 import numpy as np
-from random import randrange, choice
+from random import choice
 from sklearn.neighbors import NearestNeighbors
 
 logger = logging.getLogger("main")

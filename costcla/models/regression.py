@@ -6,7 +6,6 @@ This module include the cost-sensitive logistic regression method.
 # License: BSD 3 clause
 
 import numpy as np
-import math
 from scipy.optimize import minimize
 from sklearn.base import BaseEstimator
 # from sklearn.linear_model.logistic import _intercept_dot

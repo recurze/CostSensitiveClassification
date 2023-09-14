@@ -9,7 +9,6 @@ import itertools
 import numbers
 import numpy as np
 from abc import ABCMeta, abstractmethod
-from inspect import getargspec
 
 from sklearn.base import ClassifierMixin
 from joblib import Parallel, delayed, cpu_count
